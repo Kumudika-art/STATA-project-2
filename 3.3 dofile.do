@@ -1,0 +1,24 @@
+*Load auto data
+sysuse auto, clear 
+
+*Rename the variable rep78 to repair
+rename rep78 repair
+
+*Rename all variables to include the suffix 1978
+rename * *1978
+
+*Rename all variables so that the suffix 1978 is removed
+rename *1978 *
+
+*Label the variable repair with the words "repair categories"
+label variable repair "repair categories"
+
+*List the current stored labels
+label dir
+
+*Define a new value label called repair
+label define repair 1 "no repairs" 2 "some repairs" ///
+ 3 "many repairs" 4 "broken" 5 "otherwise"
+ 
+*Attach the value label called repair to the variable repair 
+label values repair repair
